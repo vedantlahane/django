@@ -1,5 +1,5 @@
 """
-URL configuration for chefsTable project.
+URL configuration for myproject project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -15,14 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from littleLemon import views
-
+from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.hello, name='hello'),
-    path('json/', views.jsonResonse, name='json_response'),
-    path('datafile/<str:name>/', views.datafile, name='datafile'),
+    path('', include('profiles.urls')),
 ]
-
