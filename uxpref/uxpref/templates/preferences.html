@@ -1,0 +1,22 @@
+<h2>User Preferences</h2>
+<form method="post">
+    {% csrf_token %}
+    <label>Theme:</label>
+    <select name="theme">
+        <option value="light" {% if theme=='light' %}selected{% endif %}>Light</option>
+        <option value="dark" {% if theme=='dark' %}selected{% endif %}>Dark</option>
+    </select>
+
+    <label>Language:</label>
+    <select name="language">
+        <option value="en" {% if language=='en' %}selected{% endif %}>English</option>
+        <option value="es" {% if language=='es' %}selected{% endif %}>Spanish</option>
+    </select>
+
+    <button type="submit">Save Preferences</button>
+</form>
+
+<p>Current Theme: {{ theme }}</p>
+<p>Current Language: {{ language }}</p>
+
+<a href="{% url 'logout' %}">Logout</a>
