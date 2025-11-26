@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ question.title }}</title>
+</head>
+<body>
+
+<h2>{{ question.title }}</h2>
+<p>{{ question.description }}</p>
+<hr>
+
+<h3>Answers:</h3>
+
+{% for ans in answers %}
+    <p>{{ ans.answer }}</p>
+    <small>{{ ans.created_at }}</small>
+    <hr>
+{% empty %}
+    <p>No answers yet.</p>
+{% endfor %}
+
+<h3>Add Your Answer</h3>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Answer</button>
+</form>
+
+<a href="{% url 'question_list' %}">Back to Questions</a>
+
+</body>
+</html>
