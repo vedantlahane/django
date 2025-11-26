@@ -1,0 +1,15 @@
+<h2>Dashboard</h2>
+<p>Current Workout Preference: {{ workout_pref }}</p>
+
+<form method="POST" action="{% url 'set_preference' %}">
+    {% csrf_token %}
+    <label>Set Workout Preference:</label>
+    <select name="workout_pref">
+        <option value="Low" {% if workout_pref == 'Low' %}selected{% endif %}>Low</option>
+        <option value="Medium" {% if workout_pref == 'Medium' %}selected{% endif %}>Medium</option>
+        <option value="High" {% if workout_pref == 'High' %}selected{% endif %}>High</option>
+    </select>
+    <button type="submit">Save Preference</button>
+</form>
+
+<a href="{% url 'logout' %}">Logout</a>

@@ -1,0 +1,15 @@
+<h2>Select Pot Color</h2>
+
+<form method="get">
+    <select name="color">
+        <option value="red"  {% if selected_color == 'red' %}selected{% endif %}>Red</option>
+        <option value="blue" {% if selected_color == 'blue' %}selected{% endif %}>Blue</option>
+        <option value="green" {% if selected_color == 'green' %}selected{% endif %}>Green</option>
+    </select>
+
+    <button type="submit">Save</button>
+</form>
+
+{% if selected_color %}
+<p>Current saved color: <b>{{ selected_color }}</b></p>
+{% endif %}

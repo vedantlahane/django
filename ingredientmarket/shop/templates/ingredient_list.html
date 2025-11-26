@@ -1,0 +1,36 @@
+<h1>Ingredients Marketplace</h1>
+
+<!-- Search Box -->
+<input type="text" id="searchBox" placeholder="Search ingredients...">
+<select id="categorySelect">
+    <option value="">All Categories</option>
+    {% for cat in categories %}
+        <option value="{{ cat.id }}">{{ cat.name }}</option>
+    {% endfor %}
+</select>
+
+<button id="searchBtn">Search</button>
+
+<div id="ingredientContainer">
+    {% for item in ingredients %}
+        <div class="card">
+            <img src="{{ item.image.url }}" width="120">
+            <h3>{{ item.name }}</h3>
+            <p>₹{{ item.price }}</p>
+            <button>Add to Cart</button>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+document.getElementById("searchBtn").onclick = function() {
+    let keyword = document.getElementById("searchBox").value;
+    let category = document.getElementById("categorySelect").value;
+
+    fetch(`/search/?keyword=${keyword}&category=${category}`)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("ingredientContainer").innerHTML = data;
+        });
+};
+</script>
