@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INT253 Project | {% block title %}Default Title{% endblock %}</title>
+</head>
+<body>
+    <header style="background: skyblue; padding: 10px;">
+        <h1>Django Web App</h1>
+    </header>
+    <div id="content">
+        {%block content%}
+        {%endblock%}
+    </div>
+    <footer style="background: seagreen; margin-top: 20px; border-top: 1px solid blue; padding: 10px;">
+        <p>&copy; 2025 Templarte inheritance</p>
+    </footer>
+</body>
+</html>
