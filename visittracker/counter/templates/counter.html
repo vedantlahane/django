@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visit Counter</title>
+</head>
+<body>
+
+<h1>Visit Counter Demo</h1>
+
+<h3>Cookie Counter: {{ cookie_count }}</h3>
+<p>Last Cookie Visit: {{ cookie_last }}</p>
+
+<h3>Session Counter: {{ session_count }}</h3>
+<p>Last Session Visit: {{ session_last }}</p>
+
+<br><br>
+
+<a href="{% url 'reset_counter' %}">
+    <button>Reset Counters</button>
+</a>
+
+</body>
+</html>
