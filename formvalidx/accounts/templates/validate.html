@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Validator</title>
+</head>
+<body>
+
+<h2>Validate Your Code</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Validate</button>
+</form>
+
+<p>{{ message }}</p>
+
+</body>
+</html>
