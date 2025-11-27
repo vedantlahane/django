@@ -24,14 +24,14 @@ def visit_counter(request):
     request.session["visit_count_session"] = visit_count_session
 
     # ---------------- LAST VISIT SESSION ----------------
-    last_visit_sess = request.session.get("last_visit_session", "First Visit")
+    last_visit_session = request.session.get("last_visit_session", "First Visit")
     request.session["last_visit_session"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     response = render(request, "counter.html", {
         "cookie_count": visit_count_cookie,
         "session_count": visit_count_session,
         "cookie_last": last_visit_cookie,
-        "session_last": last_visit_sess
+        "session_last": last_visit_session
     })
 
     # Set cookie expiry to 2 minutes
