@@ -1,0 +1,19 @@
+<body style="background-color: #ffffff ">
+<h2>Product List</h2>
+<form method="post" action="{% url 'set_bg_color' %}">
+    {% csrf_token %}
+    <label>Select Background Color:</label>
+    <input type="color" name="bg_color" value="{{ bg_color }}">
+    <button type="submit">Save</button>
+</form>
+
+<ul>
+{% for product in products %}
+    <li>
+        <a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a> - ₹{{ product.price }}
+    </li>
+{% empty %}
+    <li>No products available.</li>
+{% endfor %}
+</ul>
+</body>
